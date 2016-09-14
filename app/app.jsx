@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Route, Router, IndexRoute, hashHistory } from 'react-router';
 
+import TodoApp from 'TodoApp';
+
 
 // load foundation
 $(document).foundation();
@@ -9,5 +11,5 @@ $(document).foundation();
 require('style!css!sass!applicationStyles');
 
 ReactDOM.render(
-    <p>Boilerplate 3 Project</p>
-    , document.getElementById('app'));
+    <TodoApp />,
+    document.getElementById('app'));
