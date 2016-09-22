@@ -20,9 +20,9 @@ describe('TodoList', () => {
       id: 2,
       text: 'Check mail'
     }]
-    const todoList = TestUtils.renderIntoDocument(<TodoList todos={todos} />)
+    const todoList = TestUtils.renderIntoDocument(<TodoList todos={todos}/>)
     const todosComponents = TestUtils.scryRenderedComponentsWithType(todoList, Todo)
-    
+
     expect(todosComponents.length).toBe(todos.length)
   })
 })
