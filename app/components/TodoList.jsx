@@ -2,8 +2,8 @@ import React, { PropTypes } from 'react'
 import Todo from 'Todo'
 
 const TodoList = (props) => {
-  let { todos } = props
-  let renderTodos = () => {
+  const { todos } = props
+  const renderTodos = () => {
     return todos.map(todo => <Todo key={todo.id} {...todo} />)
   }
 
