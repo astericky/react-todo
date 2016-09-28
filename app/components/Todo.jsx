@@ -1,12 +1,18 @@
 import React, { PropTypes } from 'react'
 
-const Todo = (props) => {
-  let { id, text } = props
-  return (
-    <div>
-      { id }. { text }
-    </div>
-  )
+class Todo extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+  
+  render() {
+    let { id, text } = this.props
+    return (
+      <div>
+        { id }. { text }
+      </div>
+    )
+  }
 }
 
 export default Todo
