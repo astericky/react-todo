@@ -24,7 +24,9 @@ export default {
     filteredTodos = filteredTodos.filter(todo => {
       return !todo.completed || showCompleted
     })
+
     // filter by searchText
+    filteredTodos = filteredTodos.filter(todo => todo.text.toLowerCase().includes(searchText))
 
     // sort todos with non-completed first
     filteredTodos.sort((a, b) => {

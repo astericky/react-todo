@@ -64,7 +64,7 @@ describe('TodoAPI', () => {
       completed: false
     },{
       id: 3,
-      text: 'still more text here',
+      text: 'some more text here',
       completed: true
     }]
 
@@ -81,6 +81,16 @@ describe('TodoAPI', () => {
     it('should sort by completed status', () => {
       let filteredTodos = TodoAPI.filterTodos(todos, true, '')
       expect(filteredTodos[0].completed).toBe(false)
+    })
+
+    it('should filter todos by searchText', () => {
+      let filteredTodos = TodoAPI.filterTodos(todos, true, 'some')
+      expect(filteredTodos.length).toBe(2)
+    })
+
+    it('should return all todos if searchText is empty', () => {
+      let filteredTodos = TodoAPI.filterTodos(todos, true, '')
+      expect(filteredTodos.length).toBe(3)
     })
   })
 })

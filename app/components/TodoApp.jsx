@@ -35,7 +35,7 @@ class TodoApp extends React.Component {
   handleSearch = (showCompleted, searchText) => {
     this.setState({
       showCompleted,
-      searchtext: searchText.toLowerCase()
+      searchText: searchText.toLowerCase()
     })
   }
 

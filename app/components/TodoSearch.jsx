@@ -8,7 +8,7 @@ class TodoSearch extends React.Component {
   handleSearch = () => {
     let showCompleted = this.refs.showCompleted.checked
     let searchText = this.refs.searchText.value
-
+  
     this.props.onSearch(showCompleted, searchText)
   }
 
