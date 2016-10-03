@@ -1,8 +1,9 @@
 import React, { PropTypes } from 'react'
-import Todo from 'Todo'
 import { connect } from 'react-redux'
 
-class TodoList extends React.Component {
+import Todo from 'Todo'
+
+export class TodoList extends React.Component {
   constructor(props) {
     super(props)
   }

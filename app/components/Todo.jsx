@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import moment from 'moment'
 import { connect } from 'react-redux'
 
-import { toggleTodoItem } from 'actions'
+import { toggleTodo } from 'actions'
 
 export class Todo extends React.Component {
   constructor(props) {
@@ -25,7 +25,7 @@ export class Todo extends React.Component {
     }
     return (
       <div className={todoClassName} onClick={() => {
-          dispatch(toggleTodoItem(id))
+          dispatch(toggleTodo(id))
         }}>
         <div>
           <input type="checkbox" defaultChecked={completed}/>

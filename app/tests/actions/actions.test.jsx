@@ -3,7 +3,7 @@ import {
   setSearchText,
   addTodo,
   toggleShowCompleted,
-  toggleTodoItem } from 'actions'
+  toggleTodo } from 'actions'
 
 describe('Actions', () => {
   it('should generate search text action', () => {
@@ -34,10 +34,10 @@ describe('Actions', () => {
 
   it('should toggle todo item', () => {
     const action = {
-      type: 'TOGGLE_TODO_ITEM',
+      type: 'TOGGLE_TODO',
       id: '123'
     }
-    const res = toggleTodoItem(action.id)
+    const res = toggleTodo(action.id)
     expect(res).toEqual(action)
   })
 })

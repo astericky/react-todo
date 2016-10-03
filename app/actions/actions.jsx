@@ -17,8 +17,8 @@ export const toggleShowCompleted = () => {
   }
 }
 
-export const toggleTodoItem = (id) => {
+export const toggleTodo = (id) => {
   return {
-    type: 'TOGGLE_TODO_ITEM', id
+    type: 'TOGGLE_TODO', id
   }
 }
