@@ -5,27 +5,10 @@ import moment from 'moment'
 import TodoList from 'TodoList'
 import AddTodo from 'AddTodo'
 import TodoSearch from 'TodoSearch'
-import TodoAPI from 'TodoAPI'
 
 
 class TodoApp extends React.Component {
-  constructor() {
-    super()
-    // this.state = {
-    //   showCompleted: false,
-    //   searchText: '',
-    //   todos: TodoAPI.getTodos()
-    // }
-  }
-
-  componentDidUpdate() {
-    TodoAPI.setTodos(this.state.todos)
-  }
-
   render () {
-    // let { todos, showCompleted, searchText } = this.state
-    // let filteredTodos = TodoAPI.filterTodos(todos, showCompleted, searchText)
-
     return (
       <div>
         <h1 className="page-title">Todo App</h1>

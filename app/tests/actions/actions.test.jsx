@@ -2,6 +2,7 @@ import expect from 'expect'
 import {
   setSearchText,
   addTodo,
+  addTodos,
   toggleShowCompleted,
   toggleTodo } from 'actions'
 
@@ -21,6 +22,21 @@ describe('Actions', () => {
       text: 'Thing to do'
     }
     const res = addTodo(action.text)
+    expect(res).toEqual(action)
+  })
+
+  it('should generate add todos action object', () => {
+    const todos = [{
+      id: 111,
+      text: 'anything',
+      createdAt: 33000,
+      completed: false,
+      completedAt: undefined
+    }]
+    const action = {
+      type: 'ADD_TODOS', todos
+    }
+    const res = addTodos(action.todos)
     expect(res).toEqual(action)
   })
 

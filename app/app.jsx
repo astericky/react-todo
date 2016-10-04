@@ -11,16 +11,23 @@ import {
 import {
   setSearchText,
   addTodo,
+  addTodos,
   toggleShowCompleted,
   toggleTodoItem
 } from 'actions'
 import configureStore from 'configureStore'
 import TodoApp from 'TodoApp'
+import TodoAPI from 'TodoAPI'
 
 const store = configureStore()
 store.subscribe(() => {
+  let state = store.getState()
   console.log('New state', store.getState())
+  TodoAPI.setTodos(state.todos)
 })
+
+let initialTodos = TodoAPI.getTodos()
+store.dispatch(addTodos(initialTodos))
 
 // load foundation
 $(document).foundation()
