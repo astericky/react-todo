@@ -9,44 +9,22 @@ import TodoAPI from 'TodoAPI'
 
 
 class TodoApp extends React.Component {
-  constructor () {
+  constructor() {
     super()
-    this.state = {
-      showCompleted: false,
-      searchText: '',
-      todos: TodoAPI.getTodos()
-    }
+    // this.state = {
+    //   showCompleted: false,
+    //   searchText: '',
+    //   todos: TodoAPI.getTodos()
+    // }
   }
 
   componentDidUpdate() {
     TodoAPI.setTodos(this.state.todos)
   }
 
-  handleSearch = (showCompleted, searchText) => {
-    this.setState({
-      showCompleted,
-      searchText: searchText.toLowerCase()
-    })
-  }
-
-  handleAddTodo = (text) => {
-    this.setState({
-      todos: [
-        ...this.state.todos,
-        {
-          id: uuid(),
-          text,
-          completed: false,
-          createdAt: moment().unix(),
-          completedAt: undefined
-        }
-      ]
-    })
-  }
-
   render () {
-    let { todos, showCompleted, searchText } = this.state
-    let filteredTodos = TodoAPI.filterTodos(todos, showCompleted, searchText)
+    // let { todos, showCompleted, searchText } = this.state
+    // let filteredTodos = TodoAPI.filterTodos(todos, showCompleted, searchText)
 
     return (
       <div>
@@ -54,9 +32,9 @@ class TodoApp extends React.Component {
         <div className="row">
           <div className="column small-centered small-11 medium-6 large-5">
             <div className="container">
-              <TodoSearch onSearch={this.handleSearch} />
+              <TodoSearch/>
               <TodoList/>
-              <AddTodo onAddTodo={this.handleAddTodo} />
+              <AddTodo/>
             </div>
           </div>
         </div>

@@ -26,7 +26,7 @@ export default {
     })
 
     // filter by searchText
-    filteredTodos = filteredTodos.filter(todo => todo.text.toLowerCase().includes(searchText))
+    filteredTodos = filteredTodos.filter(todo => todo.text.toLowerCase().includes(searchText.toLowerCase()))
 
     // sort todos with non-completed first
     filteredTodos.sort((a, b) => {

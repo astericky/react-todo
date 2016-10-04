@@ -22,10 +22,6 @@ store.subscribe(() => {
   console.log('New state', store.getState())
 })
 
-store.dispatch(addTodo('Clean the yard'))
-store.dispatch(setSearchText('yard'))
-store.dispatch(toggleShowCompleted())
-
 // load foundation
 $(document).foundation()
 
