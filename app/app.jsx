@@ -19,6 +19,8 @@ import configureStore from 'configureStore'
 import TodoApp from 'TodoApp'
 import TodoAPI from 'TodoAPI'
 
+
+
 const store = configureStore()
 store.subscribe(() => {
   let state = store.getState()

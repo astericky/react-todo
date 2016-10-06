@@ -1,3 +1,5 @@
+import moment from 'moment'
+import firebase, { firebaseRef } from 'app/firebase/index'
 
 export const setSearchText = (searchText) => {
   return {
@@ -5,9 +7,27 @@ export const setSearchText = (searchText) => {
   }
 }
 
-export const addTodo = (text) => {
+export const addTodo = (todo) => {
   return {
-    type: 'ADD_TODO', text
+    type: 'ADD_TODO', todo
+  }
+}
+
+export const startAddTodo = (text) => {
+  return (dispatch, getState) => {
+    const todo = {
+      text,
+      completed: false,
+      createdAt: moment().unix(),
+      completedAt: null
+    }
+    const todoRef = firebaseRef.child('todos').push(todo)
+    return todoRef.then(() => {
+      dispatch(addTodo({
+        ...todo,
+        id: todoRef.key
+      }))
+    })
   }
 }
 

@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { addTodo } from 'actions'
+import * as actions from 'actions'
 
 export class AddTodo extends React.Component {
   constructor (props) {
@@ -13,7 +13,7 @@ export class AddTodo extends React.Component {
     let todoText = this.refs.todoText.value
     if (todoText.length > 0) {
       this.refs.todoText.value = ''
-      dispatch(addTodo(todoText))
+      dispatch(actions.startAddTodo(todoText))
     } else {
       this.refs.todoText.focus()
     }
