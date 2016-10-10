@@ -38,6 +38,27 @@ export const addTodos = (todos) => {
   }
 }
 
+export const startAddTodos = () => {
+  return (dispatch, getState) => {
+    const todoRef = firebaseRef.child(`todos`)
+    return todoRef.once('value').then((snapshot) => {
+      const todos = snapshot.val() || {}
+      let parsedTodos = []
+
+      for (var todo in todos) {
+        parsedTodos.push({
+          id: todo,
+          ...todos[todo]
+        })
+      }
+      
+      dispatch(addTodos(parsedTodos))
+    }, (error) => {
+      console.log("The read failed: " + error.code);
+    })
+  }
+}
+
 export const toggleShowCompleted = () => {
   return {
     type: 'TOGGLE_SHOW_COMPLETED'

@@ -8,13 +8,7 @@ import {
   IndexRoute,
   hashHistory
 } from 'react-router'
-import {
-  setSearchText,
-  addTodo,
-  addTodos,
-  toggleShowCompleted,
-  toggleTodoItem
-} from 'actions'
+import * as actions from 'actions'
 import configureStore from 'configureStore'
 import TodoApp from 'TodoApp'
 import TodoAPI from 'TodoAPI'
@@ -22,14 +16,16 @@ import TodoAPI from 'TodoAPI'
 
 
 const store = configureStore()
-store.subscribe(() => {
-  let state = store.getState()
-  console.log('New state', store.getState())
-  TodoAPI.setTodos(state.todos)
-})
+// store.subscribe(() => {
+//   let state = store.getState()
+//   console.log('New state', store.getState())
+//   TodoAPI.setTodos(state.todos)
+// })
 
-let initialTodos = TodoAPI.getTodos()
-store.dispatch(addTodos(initialTodos))
+// let initialTodos = TodoAPI.getTodos()
+// store.dispatch(ations.addTodos(initialTodos))
+
+store.dispatch(actions.startAddTodos())
 
 // load foundation
 $(document).foundation()
