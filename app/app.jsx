@@ -10,20 +10,12 @@ import {
 } from 'react-router'
 import * as actions from 'actions'
 import configureStore from 'configureStore'
+import Main from 'Main'
+import Login from 'Login'
 import TodoApp from 'TodoApp'
 import TodoAPI from 'TodoAPI'
 
-
-
 const store = configureStore()
-// store.subscribe(() => {
-//   let state = store.getState()
-//   console.log('New state', store.getState())
-//   TodoAPI.setTodos(state.todos)
-// })
-
-// let initialTodos = TodoAPI.getTodos()
-// store.dispatch(ations.addTodos(initialTodos))
 
 store.dispatch(actions.startAddTodos())
 
@@ -34,6 +26,11 @@ require('style!css!sass!applicationStyles');
 
 ReactDOM.render(
     <Provider store={store}>
-      <TodoApp/>
+      <Router history={hashHistory}>
+        <Route path="/" component={Main}>
+          <IndexRoute component={Login} />
+          <Route path="todos" component={TodoApp} />
+        </Route>
+      </Router>
     </Provider>,
     document.getElementById('app'))

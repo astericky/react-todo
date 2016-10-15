@@ -1,5 +1,5 @@
 import moment from 'moment'
-import firebase, { firebaseRef } from 'app/firebase/index'
+import firebase, { firebaseRef, githubProvider } from 'app/firebase/index'
 
 export const setSearchText = (searchText) => {
   return {
@@ -51,7 +51,7 @@ export const startAddTodos = () => {
           ...todos[todo]
         })
       }
-      
+
       dispatch(addTodos(parsedTodos))
     }, (error) => {
       console.log("The read failed: " + error.code);
@@ -80,6 +80,26 @@ export const startToggleTodo = (id, completed) => {
     }
     return todoRef.update(updates).then(() => {
       dispatch(updateTodo(id, updates))
+    })
+  }
+}
+
+export const startLogin = () => {
+  return (dispatch, getState) => {
+    return firebase.auth().signInWithPopup(githubProvider).then((result) => {
+      console.log('Auth worked!', result)
+    }, (error) => {
+      console.log('Unable to auth', error)
+    })
+  }
+}
+
+export const startLogout = () => {
+  return (dispatch, getState) => {
+    return firebase.auth().signOut().then(() => {
+      console.log('Logged out!')
+    }, () => {
+      
     })
   }
 }
