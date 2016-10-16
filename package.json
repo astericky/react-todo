@@ -9,7 +9,7 @@
     "start": "npm run build && node server.js"
   },
   "engines": {
-    "node": "6.2.1"
+    "node": "6.6.0"
   },
   "author": "",
   "license": "ISC",
