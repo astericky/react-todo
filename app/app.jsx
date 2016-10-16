@@ -21,6 +21,7 @@ firebase.auth().onAuthStateChanged((user) => {
 
 const store = configureStore()
 
+
 // load foundation
 $(document).foundation()
 
