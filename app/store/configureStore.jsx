@@ -3,14 +3,16 @@ import thunk from 'redux-thunk'
 import {
   searchTextReducer,
   showCompletedReducer,
-  todosReducer
+  todosReducer,
+  authReducer
 } from 'reducers'
 
 export default (initialState = {}) => {
   const reducer = redux.combineReducers({
     searchText: searchTextReducer,
     showCompleted: showCompletedReducer,
-    todos: todosReducer
+    todos: todosReducer,
+    auth: authReducer
   })
 
   const store = redux.createStore(reducer, initialState, redux.compose(

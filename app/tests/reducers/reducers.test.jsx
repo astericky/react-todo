@@ -3,7 +3,8 @@ import df from 'deep-freeze-strict'
 import {
   searchTextReducer,
   showCompletedReducer,
-  todosReducer
+  todosReducer,
+  authReducer
 } from 'reducers'
 
 
@@ -81,6 +82,30 @@ describe('Reducers', () => {
       const res = todosReducer(df([]), df(action))
       expect(res.length).toEqual(1)
       expect(res[0]).toEqual(todos[0])
+    })
+  })
+
+  describe('authReducer', () => {
+    it('should login', () => {
+      const action = {
+        type: 'LOGIN',
+        uid: 123
+      }
+      const res = authReducer(df({}), df(action))
+      expect(res).toEqual({
+        uid: action.uid
+      })
+    })
+
+    it('should logout', () => {
+      const authData = {
+        uid: '123abc'
+      }
+      const action = {
+        type: 'LOGOUT'
+      }
+      const res = authReducer(df(authData), df(action))
+      expect(res).toEqual({})
     })
   })
 })
