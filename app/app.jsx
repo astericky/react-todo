@@ -24,7 +24,7 @@ const store = configureStore()
 // load foundation
 $(document).foundation()
 
-// require('style!css!sass!applicationStyles')
+require('style!css!sass!applicationStyles')
 
 ReactDOM.render(
     <Provider store={store}>
